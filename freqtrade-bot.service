@@ -1,0 +1,18 @@
+[Unit]
+Description=Freqtrade Bot
+
+[Service]
+WorkingDirectory=/home/mm/bot01
+ExecStart=/home/mm/.freqtrade/.env/bin/freqtrade trade
+Restart=always
+RestartSec=10
+Type=notify
+NotifyAccess=all
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=bot01
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
